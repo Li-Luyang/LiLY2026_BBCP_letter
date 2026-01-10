@@ -1,0 +1,164 @@
+\documentclass[%
+ preprint,		%this is a good format for editing and submission. Try to up to Refs < 10 pages
+ %twocolumn,	%this gives an estimate of the total length of the manuscript but it's usually too long
+ linenumbers, 
+ amsmath,amssymb, aps, physrev,
+]{revtex4-2}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{upgreek}
+\usepackage{xcolor}
+
+\usepackage{hyperref}
+\usepackage{xr-hyper}
+\externaldocument[SM-]{SM/SM_DNA}
+
+\begin{document}
+
+\title{
+Networks formd by Bottlebrush copolymers: Double gyroid leaves while single diamond comes
+}%
+
+
+\author{Luyang Li}
+\author{Kevin D. Dorfman}
+ \email{Contact author: dorfman@umn.edu}
+\affiliation{
+Department of Chemical Engineering and Materials Science, University of Minnesota -- Twin Cities,
+421 Washington Ave. SE, Minneapolis, Minnesota 55455, United States}
+
+
+\date{\today}
+
+
+\begin{abstract}
+The bottlebrush diblock copolymers have similarities to the linear diblock copolymers, but the grafted side chains make the phase behavior different.
+Double gyroid (GYR) network has been known as one of the classical equilibrium structures of the linear diblock copolymers.
+A recent theoretical study of self-consistent field theory predicted a notable window of GYR, but it was not found in experiments.
+This work studies this problem by dissipative particle dynamics simulation using coarse-grained bead models.
+In the obtained diagrams, when the side chains have moderate length and the backbone is gradually stiffened, the GYR window is squeezed and finally gone.
+However, under this condition, single diamond (SD) structure emerges and occupies a wide window in the diagram.
+We proposed the mechanisms of the phase behavior of bottlebrush copolymers to be the superimposed effects of backbone stiffness and shape of coils.
+\end{abstract}
+
+\maketitle
+
+\clearpage 
+% background
+Block copolymers can form many ordered structures at the scales of several nanometers due to the imcompatibility between the distinct blocks.
+For diblock copolymer species, the compositional asymmetry is decided by the volume fraction of one block, $f$, whose change strongly determines the type of the resulted ordered morphologies.
+The classical phase sequence includes: body-centered cubic (BCC) spheres, hexagonal (HEX) cylinders, double gyroid (GYR) network, and alternating lamellae (LAM), which find applications in structural materials, patterning materials, and optical devices.
+In addition to the structure type, the domain spacing size is also crutial to the processing and application of materials.
+For AB-type linear block copolymers, the size is primarily decided by two parameters: the degree of polymerization $N$, and the Flory-Huggins parameter $\chi$, which can be used as a whole interaction parameter $\chi N$.
+Limited by the coil entanglement, it is difficult to fabricate ordered structures of hundreds of nanometers with the linear block copolymers due to the extremely slow dynamics.
+
+By contrast, bottlebrush polymers, where side chains are densely grafted along backbone, can form large domains through fast dynamics.
+As an analogy, for the AB-type bottlebrush block copolymers, the spacing size is determined by backbone.
+% Because of the packing of chains, the domain spacing of the morphologies is decided by the coil sizes.
+% For flexible linear polymers, the radius of gyration is related to the chain length, e.g., the number of monomers in one molecule, that is, $R_g\propto N^\alpha$.
+% However, if the chains become too long, they are more possible to be entangled, thus make the dynamics slow, which is an obstacle of fabricating ordered structures of larger spacings with block copolymers.
+By contrast, bottlebrush copolymer provides a possibility of forming large-sized structures through self-assembly.
+The side chains are grafted along backbone to form a bottlebrush polymer.
+Because of the topological architecture, the side chains do not need to be very long to induce crowding effect, making the backbone axially more stretched than the linear case, thus the spacing is enlarged without too much entanglement.
+
+% what's the problem
+Self-consistent field theory (SCFT) is a succcessful approach of studying the phase behavior of block copolymers.
+For linear diblock copolymers, the predicted phase diagram agrees well with the experimental one, where both the xx and xx blocks are flexible.
+Recently, Park and co-workers predicted the phase diagrams of bottlebrush diblock copolymer melts using SCFT, where the phase sequence of LAM $\rightarrow$ HEX $\rightarrow$ BCC remains for increasing compositional asymmetry when the side chains are getting longer.
+The point is, if linear diblock copolymer form small-sized GYR strucutre, the bottlebrush diblock copolymer should be able to form large-sized GYR structure.
+In a followed experimental study done by Shuquan and co-workers, they only found LAM $\rightarrow$ HEX transition for bottlebrush copolymers.
+So, GYR is the main difference between the predicted and the observed diagrams.
+One possible reason could be the crowding effect of side chains, which stiffens the backbone.
+In some theoretical studies, the bottlebrush polymer is approximated to be wormlike cylinders (Charles E. Sing, Andrey V. Dobrynin, Li-Heng Cai), and developed scalinig rules, e.g., the end-to-end distance, $R_e$.
+However, there have not been clear explanations to the different phase behavior of bottlebrush and linear diblock copolymers.
+
+For a bottlebrush polymer, if the backbone itself is flexible, it should be favorable to form a coil without side chains, and the extra stiffness origins from the crowding of side chains.
+And for the side chains, the crowding origins from their overlaps, which also makes them more stretched than forming coils.
+In principle, the loner side chains form larger coils with a higher degree of overlap, making the backbone stiffer.
+However, if one look at the last side chains at ends, the longer side chains lead to longer linear tails.
+So, it is interesting to ask questions that how much stiffness the bakcbone can gain from the side chains and what effect will the tails cause?
+By answering these questions, we can understand the essential cause of the phase behavior of the linear and the hairy blocks copolymers.
+
+
+\begin{figure}[t]
+\includegraphics[clip,width=3.2in]{fig1.pdf}
+\caption{
+\label{fig:schematic}
+Schematic illustration of the linear and the bottlebrush diblock copolymers.
+To be added. 
+}
+\end{figure}
+
+% Introduce the model and provide physical insights.
+Figure ??? illustrates the architectures of linear and bottlebrush copolymers, where A and B are two distinct blocks.
+In experiments, the bottlebrush polymers is synthesized by polymerizing the macromonomers of PEP, PS, and PEO with an exo-5-norbornenecarboxylic linker.
+Therefore, the linker is very small compared to the side chain, and the linkers are polymerized to form the bakcbone, so the distinct side chains are grafted onto the same backbone.
+Those considerations result in the model of bottlebrush diblock copolymers in Figure ???, where the A and B side chains are grafted on C backbone.
+We use coarse-grained bead models to mimick polymers, so each bead with a diameter of $\sigma$ contains many monomers and is seen as a Kuhn length ($b_K$).
+In the model, the backbone length ($T$) is fixed to be $20\sigma$ to make the bottlebrush polymer be comparable with the linear diblock copolymer with a total length of $20\sigma$, and the densely grafted side chains (one side chain per backbone bead) have uniform length of $\alpha T$.
+Note that the length unit of the model is decided by $\sigma$, so we are studying the impact of the realatively length of side chains with reference to the backbone.
+At first, both backbone and side chains are flexible for simplicity.
+To demonstrate the evolution of the hairy architecture from linear one, we introduce a structural parameter $\varepsilon$, indicating the ``topological distance'' between the beads and the junction point.
+The beads of identical $\varepsilon$ are traced to the junction point by the same number of bonds, which implies that they should have the ability to stretch to same distance.
+The values of $\varepsilon$ is defined to be $(i+j)$, where $i$ and $j$ are the grafting point and the position in the side chain it belongs to, and the number of beads for different $\varepsilon$ are not certainly equal.
+Figure ??? displays two examples of the probability density distribution of $\varepsilon$, which is determined by $f$ and $\alpha$ for a certain block.
+
+% P4: The critical parameters of the model
+Basing on the SCFT work by Park et al., where $\alpha$ ranges in $0\sim 0.3$, the range of $\alpha$ values in our simulations is chosen to be $0.1\sim 0.3$.
+Figure S?? displays the diagram of linear diblock copolymers, where $\chi N$ are set to be 46 and 86, corresponding to $a=33$ and 40.
+When $f_{\rm B}=0.35$, GYR forms at $\chi N=46$ but perforated lamellae (PL) forms at $\chi N=86$, so we chose $\chi N=46$ in all the simulations.
+For stiffness, the excluded volume of the side chains would introduce stiffness to the backbone, but we can also introduce extra stiffness to the C backbone by setting the harmonic bond angle potential parameter, $k_{\rm C}$.
+As a result, we have flexible-flexible, stiff-flexible and stiff-stiff classes of models saying the addition of the extra stiffness of backbone and side chains.
+
+% The simulation methods
+We applied the standard dissipative particle dynamics (DPD) method to the systems.
+The force on each bead is a sum of conservative, dissipative, and radom pariwise contributions:
+$f_i=\sum_{j\neq i}({\bf F}^C_{ij}+{\bf F}^D_{ij}+{\bf F}^R_{ij})$.
+Each pair of connected beads has a harmonic spring bond potential as
+$V_{\rm bond}(r) = \frac{1}{2}k_{\rm b}(r-r_{\rm b})^2$,
+where $r_{\rm b}$ is the reference length and $r$ is the distance between the beads, $k_{\rm b}$ is the spring constant.
+We set $r_{\rm b}=0$ and $k_{\rm b}=4$ following the convention.
+Crowding of side chains is the most significant feature of bottlebrush polymers, however, the ``soft potential'' in DPD model results in a loss in stiffness induced by the steric hindrance.
+To endow the corrected stiffness, we model the backbone as a wormlike chain by adding an extra harmonic angle potential between the adjacent bonds as
+$V_{\rm angle}(r) = \frac{1}{2}k_{\rm a}(\theta-\theta_{\rm 0})^2$,
+where $\theta_0$ is $\pi$, and tunable $k_{\rm a}$ is the rigidity of the chain.
+The dimensionless time unit is $\tau = R_{\rm c}\sqrt{m/k_{\rm B}T}$, and the velocity-Verlet algorithm is used to integrate the equations of motion, and the time step is set to be $0.01\tau$.
+The number density of beads is $\rho = 3$, leading to $a_{ij}=25+3.27\chi_{ij}$ related to the Flory-Huggins parameter $\chi$, e.g., $a_{ij}=33$ is used for $\chi N=46$ and $a_{ij}=40$ for $\chi N=86$.
+The values of $a_{ij}$ for all our simulations are:
+$\[
+a_{ij} = 
+\begin{pmatrix}
+& A & B & C & D \\
+A & 25 & 33 & 0 & 0 \\
+B & 33 & 25 & 0 & 0 \\
+C & 0 & 0 & 25 & 25 \\
+D & 0 & 0 & 25 & 25
+\end{pmatrix}
+\]$
+
+Each simulation is run for $2\times 10^6\tau$ as a disordered state, and followed by a continuous annealing process, which means, all the ordered structures spontanueously form from the disordered state.
+For a given set of parameters, we run parallel simulations in different cubic box sizes, and the equilibrium structures are determined by a ranking strategy.
+The one-dimensional (1D) structure LAM and 2D structure HEX can form in most boxes, because they have at least one degree of freedom in the 3D space.
+PL is a 3D structure, but the third period is not related to the other two, so it can also rotate to adapt to the box sizes.
+By contrast, the 3D network morphologies, e.g., GYR and SD, can only form when the box size fit their unit cells.
+Therefore, the parallel simulations for a parameter set are run in boxes of $L_0\sim L_n$.
+This point is labeled to be pure or co-existence of 1D or 2D structures according to the statistical results.
+If a 3D structure form in the box $L_x$ while 1D or 2D structures form in other boxes, two extra simulations are run in the $L_x$ box.
+If the same 3D structure form in the three simulations in the $L_x$ box, the 3D structure is labeled to be equilibrium.
+
+%%%%%%%%%%%%%%%%%%% I am here.
+
+% P6~: discussion of figures
+
+
+\begin{acknowledgments}
+Research reported in this publication was supported by the National Institute of General Medical Sciences of the National Institutes of Health under Award Number R01-GM149501. 
+The content is solely the responsibility of the authors and does not necessarily represent the official views of the National Institutes of Health.
+This work was carried out in part using computing resources at the University of Minnesota Supercomputing Institute.
+\end{acknowledgments}
+
+\bibliography{DNA_draft}
+
+\end{document}

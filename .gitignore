@@ -1,0 +1,10 @@
+*.toc
+*.blg
+*.bbl
+*.log
+*.synctex.gz
+*.out
+*Notes.bib
+.DS_Store
+.$reply.docx
+*.xml
